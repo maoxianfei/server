@@ -61,5 +61,5 @@ class Handle(object):
                         return replyMsg.send()
             print "暂且不处理"
             return reply.Msg().send()
-        except Exception, Argment:
+        except Exception:
             return Argment
