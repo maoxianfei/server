@@ -40,7 +40,7 @@ class Handle(object):
                 toUser = recMsg.FromUserName
                 fromUser = recMsg.ToUserName
                 if recMsg.MsgType == 'text':
-                    print '------',recMsg.Content
+                    print '用户发送的信息：',recMsg.Content
                     if recMsg.Content=='love':
                         content = "come on"
                     elif recMsg.Content=='fuck':
