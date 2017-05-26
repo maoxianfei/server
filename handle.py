@@ -42,6 +42,7 @@ class Handle(object):
                 fromUser = recMsg.ToUserName
                 if recMsg.MsgType == 'text':
                     print 'The user message:---',recMsg.Content,'---'
+                    print recMsg.Content.split('.')[0]
                     if recMsg.Content.split('.')[0]=='king':
                         # content = novel.Choose()
                         content='chele'
