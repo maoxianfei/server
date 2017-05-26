@@ -45,8 +45,9 @@ class Handle(object):
                     head=recMsg.Content.split('.')[0]
                     page=recMsg.Content.split('.')[1]
                     if head=='king':
-                        print head,page
-                        content = novel.Choose(head,page).encode('utf-8')
+                        print '>>>',head,page
+                         a= novel.Choose(head,page)
+                        content=a.decode('unicode-escape').encode('utf-8')
                     elif recMsg.Content=='fuck':
                         content = u"尚未完成".encode('utf-8')
                     else:
