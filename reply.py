@@ -47,4 +47,5 @@ class ImageMsg(Msg):
         </Image>
         </xml>
         """
+        print 'send方法'
         return XmlForm.format(**self.__dict)
