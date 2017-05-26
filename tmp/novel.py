@@ -88,6 +88,7 @@ def Choose(head='king',chap='1060'):
     li=Query(url[head])
     a=Download(li[page][0])
     b=li[page][1].encode('utf-8')
+    print 'novel',b+a
     return b+a
 
 def Duplicate(tmp):
