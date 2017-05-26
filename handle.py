@@ -5,6 +5,7 @@ import hashlib
 import web
 import reply
 import receive
+from tmp import novel
 
 class Handle(object):
     def GET(self):
@@ -41,8 +42,9 @@ class Handle(object):
                 fromUser = recMsg.ToUserName
                 if recMsg.MsgType == 'text':
                     print 'The user message:---',recMsg.Content,'---'
-                    if recMsg.Content=='love':
-                        content = "come on"
+                    if recMsg.Content.split('.')[0]=='king':
+                        # content = novel.Choose()
+                        content='chele'
                     elif recMsg.Content=='fuck':
                         content = u"尚未完成".encode('utf-8')
                     else:

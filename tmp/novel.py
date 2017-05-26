@@ -86,7 +86,9 @@ def Choose(head='king',chap='1060'):
         'king':'http://www.aiquxs.com/read/67/67831/',
     'Poor Champion':'http://www.aiquxs.com/read/46/46800/',}
     li=Query(url[head])
-    return li[page][1],Download(li[page][0])
+    a=Download(li[page][0])
+    b=li[page][1].encode('utf-8')
+    return b+a
 
 def Duplicate(tmp):
     patterns = []
