@@ -1,4 +1,5 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-a="你好"
-print a
+from tmp import novel
+page,content=novel.Choose()
+print page,content
