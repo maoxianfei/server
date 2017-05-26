@@ -15,7 +15,6 @@ class TextMsg(Msg):
         self.__dict['FromUserName'] = fromUserName
         self.__dict['CreateTime'] = int(time.time())
         self.__dict['Content'] = content
-        print '>>>textmsg making'
 
     def send(self):
         XmlForm = """
@@ -48,5 +47,4 @@ class ImageMsg(Msg):
         </Image>
         </xml>
         """
-        print '>>>send'
         return XmlForm.format(**self.__dict)
