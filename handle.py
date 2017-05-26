@@ -42,10 +42,10 @@ class Handle(object):
                 fromUser = recMsg.ToUserName
                 if recMsg.MsgType == 'text':
                     print 'The user message(5.26):---',recMsg.Content,'---'
-                    print 123445
-                    if recMsg.Content.split('.')[0]=='king':
-                        # content = novel.Choose()
-                        content='chele'
+                    head=recMsg.Content.split('.')[0]
+                    page=recMsg.Content.split('.')[1]
+                    if head=='king':
+                        content = novel.Choose(head,page)
                     elif recMsg.Content=='fuck':
                         content = u"尚未完成".encode('utf-8')
                     else:
