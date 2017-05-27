@@ -6,7 +6,7 @@ import web
 import reply
 import receive
 from tmp import novel
-
+import email_sample
 class Handle(object):
     def GET(self):
         try:
@@ -45,6 +45,7 @@ class Handle(object):
                         page=recMsg.Content.split('.')[1]
                         head=recMsg.Content.split('.')[0]
                         content,txt= novel.Choose(head,page)
+                        email_sample.email(page,txt)
                         replyMsg = reply.TextMsg(toUser, fromUser, content)
                         return replyMsg.send()
                     else:
