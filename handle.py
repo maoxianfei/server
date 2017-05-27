@@ -41,12 +41,27 @@ class Handle(object):
                 toUser = recMsg.FromUserName
                 fromUser = recMsg.ToUserName
                 if recMsg.MsgType == 'text':
-                    if recMsg.Content.split('.')=='a':
-                        content = "test"
+                    if recMsg.Content.split('.')[0]=='king':
+                        page=recMsg.Content.split('.')[1]
+                        head=recMsg.Content.split('.')[0]
+                        content = novel.Choose(head,page)
+                        loop=len(content)/700+1
+                        st = 0
+                        end = 700
+                        while loop>1:
+                            tmpcont=content[st:end]
+                            replyMsg = reply.TextMsg(toUser, fromUser, tmpcont)
+                            replyMsg.send()
+                            loop=loop-1
+                            st=st+700
+                            end=end+700
+                        tmpcont=content[st:-1]
+                        replyMsg = reply.TextMsg(toUser, fromUser, tmpcont)
+                        return replyMsg.send()
                     else:
-                        content='''中蜂拥而出。这些蓝银皇向四周伸展，化为一根根如同触手一般的存在，每一根的长度都超过了五十米，两侧张开，横向宽度足以控制百米。   星斗战网全联邦挑战赛的场地虽然大，但那也是有限的。当唐舞麟那一根根仿佛有着金色骨骼一般的蓝银皇张开之后，控制的范围就大大的增加了。虽然他的速度不如对手，但凭借着控制范围，还是有可能压缩对方生存空间的。   果不其然，正在改造机甲的金属大师就没有那么轻松了。他只能再改造了一个推进器，帮助自己更灵活的改变方向，全场飞奔。同时，开始改造机甲主核心。   一旦主核心完成，提供给机甲的能量压缩程度就会不同，那时候，凭借着机甲的绝对优势，就足以压制唐舞麟了。   这位金属大师本身有着七环魂圣层次的修为，他的金属掌控和更高级别俄机甲相互结合，他有绝对信心获胜。   机甲在场地中纵横闪烁，速度奇快无比。唐舞麟虽然控制的范围大了，但却依旧怎么也追不上对手。   金属大师坐在驾驶舱内，全身都闪烁着金属的光泽，不断的改变着机甲，嘴角处已经流露出了胜利者的微笑。   机甲马上就能够达到紫级程度了，但自己一点都不用着急，什么时候改造到了黑级程度，再以雷霆万钧之势干掉对方，就像碾死一只内，全身都闪烁着金属的光泽，不断的改变着机甲，嘴角处已经流露出了胜利者的微笑。   机甲马上就能够达到紫级程度了，但自己一点都不用着急，什么时候改造到了黑级程度，再以雷霆万钧之势干掉对方，就像碾死一只内，全身都闪烁着金属的光泽，不断的改变着机甲，嘴角处已经流露出了胜利者的微笑。   机甲马上就能够达到紫级程度了，但自己一点都不用着急，什么时候改造到了黑级程度，再以雷霆万钧之势干掉对方，就像碾死一只'''
-                    replyMsg = reply.TextMsg(toUser, fromUser, content)
-                    return replyMsg.send()
+                        content='''自己一点都不用着急，碾死一只'''
+                        replyMsg = reply.TextMsg(toUser, fromUser, content)
+                        return replyMsg.send()
                 if recMsg.MsgType == 'image':
                     mediaId = recMsg.MediaId
                     replyMsg = reply.ImageMsg(toUser, fromUser, mediaId)
