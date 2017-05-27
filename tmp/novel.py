@@ -86,9 +86,25 @@ def Choose(head='king',chap='1060'):
         'king':'http://www.aiquxs.com/read/67/67831/',
     'Poor Champion':'http://www.aiquxs.com/read/46/46800/',}
     li=Query(url[head])
-    a=Download(li[page][0])
-    b=li[page][1].encode('utf-8')
-    return b+a
+    index=[]
+    desc=[]
+    i=0
+    while li[page][1]!=li[-1][1]:
+        index.append(page)
+        desc.append(li[page][1])
+        page=page+1
+        i=i+1
+
+    txt=Download(li[page][0])
+    catalog=[]
+    for i in range(len(index)):
+        catalog.append(str(index[i])+desc[i])
+    catalog=str(catalog).decode('unicode-escape').encode('utf-8')
+    catalog=re.sub(",", '\n', catalog)#逗号换成换行符
+    other = "[u\'\[\]]"  # 替换除了中文字符和逗号的所有字符
+    catalog = re.sub(other, '', catalog)
+
+    return catalog,txt
 
 def Duplicate(tmp):
     patterns = []
