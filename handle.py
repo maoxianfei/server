@@ -49,7 +49,7 @@ class Handle(object):
                         replyMsg = reply.TextMsg(toUser, fromUser, content)
                         return replyMsg.send()
                     else:
-                        content='''自己一点都不用着急，碾死一只'''
+                        content='''输入 king.1061 就能'''
                         replyMsg = reply.TextMsg(toUser, fromUser, content)
                         return replyMsg.send()
                 if recMsg.MsgType == 'image':
