@@ -7,6 +7,8 @@ import reply
 import receive
 from tmp import novel
 import email_sample
+import movice
+
 class Handle(object):
     def GET(self):
         try:
@@ -49,7 +51,9 @@ class Handle(object):
                         replyMsg = reply.TextMsg(toUser, fromUser, content)
                         return replyMsg.send()
                     else:
-                        content='''输入 king.1061 就能'''
+                        keywo=recMsg.Content
+                        print '>>>',keywo
+                        content=movice.Search_main(keywo)
                         replyMsg = reply.TextMsg(toUser, fromUser, content)
                         return replyMsg.send()
                 if recMsg.MsgType == 'image':
