@@ -44,8 +44,7 @@ class Handle(object):
                     if recMsg.Content.split('.')[0]=='king':
                         page=recMsg.Content.split('.')[1]
                         head=recMsg.Content.split('.')[0]
-                        # content = novel.Choose(head,page)
-                        content='123'
+                        content,txt= novel.Choose(head,page)
                         replyMsg = reply.TextMsg(toUser, fromUser, content)
                         return replyMsg.send()
                     else:
