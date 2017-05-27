@@ -44,19 +44,9 @@ class Handle(object):
                     if recMsg.Content.split('.')[0]=='king':
                         page=recMsg.Content.split('.')[1]
                         head=recMsg.Content.split('.')[0]
-                        content = novel.Choose(head,page)
-                        loop=len(content)/700+1
-                        st = 0
-                        end = 700
-                        while loop>1:
-                            tmpcont=content[st:end]
-                            replyMsg = reply.TextMsg(toUser, fromUser, tmpcont)
-                            replyMsg.send()
-                            loop=loop-1
-                            st=st+700
-                            end=end+700
-                        tmpcont=content[st:-1]
-                        replyMsg = reply.TextMsg(toUser, fromUser, tmpcont)
+                        # content = novel.Choose(head,page)
+                        content='123'
+                        replyMsg = reply.TextMsg(toUser, fromUser, content)
                         return replyMsg.send()
                     else:
                         content='''自己一点都不用着急，碾死一只'''
