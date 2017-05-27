@@ -80,12 +80,14 @@ def Download(url_chapter):
     final1 = re.sub("<br><br>", ' ',final)
     content=str(final1)[2:-1]
     return content
-def Choose(head='king',chap='1060'):
+def Choose(head='king',chap='1061'):
     page=int(chap)
+
     url={'Poor Rise':'http://www.aiquxs.com/read/46/46745/',
         'king':'http://www.aiquxs.com/read/67/67831/',
     'Poor Champion':'http://www.aiquxs.com/read/46/46800/',}
     li=Query(url[head])
+    txt = Download(li[page][0])
     index=[]
     desc=[]
     i=0
@@ -94,8 +96,7 @@ def Choose(head='king',chap='1060'):
         desc.append(li[page][1])
         page=page+1
         i=i+1
-
-    txt=Download(li[page][0])
+    print 'li page',li[page][0]
     catalog=[]
     for i in range(len(index)):
         catalog.append(str(index[i])+desc[i])

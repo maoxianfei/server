@@ -52,7 +52,7 @@ class Handle(object):
                         return replyMsg.send()
                     else:
                         keywo=recMsg.Content
-                        print '>>>',keywo
+                        print u'用户消息：'.encode('utf-8'),keywo
                         content=movice.Search_main(keywo)
                         replyMsg = reply.TextMsg(toUser, fromUser, content)
                         return replyMsg.send()
