@@ -8,7 +8,7 @@ import receive
 from tmp import novel
 import email_sample
 import movice
-
+import sudoku
 class Handle(object):
     def GET(self):
         try:
@@ -50,9 +50,14 @@ class Handle(object):
                         email_sample.email(page,txt)
                         replyMsg = reply.TextMsg(toUser, fromUser, content)
                         return replyMsg.send()
+                    elif recMsg.Content.split(':')[0]=='sudoku':
+                        a=recMsg.Content.split(':')[1]
+                        sudoku.main(a)
+                        content = sudoku.fin1
+                        replyMsg = reply.TextMsg(toUser, fromUser, content)
+                        return replyMsg.send()
                     else:
                         keywo=recMsg.Content
-                        print u'用户消息：'.encode('utf-8'),keywo
                         content=movice.Search_main(keywo)
                         replyMsg = reply.TextMsg(toUser, fromUser, content)
                         return replyMsg.send()
