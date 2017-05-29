@@ -97,6 +97,9 @@ def Choose(head='king',chap='1061'):
         page=page+1
         i=i+1
     print 'li page',li[page][0]
+    #最新一章添加上，防止没有返回值
+    index.append(page+1)
+    desc.append(li[page+1][1])
     catalog=[]
     for i in range(len(index)):
         catalog.append(str(index[i])+desc[i])
